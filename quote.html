@@ -327,10 +327,10 @@ footer a{color:var(--primary2);text-decoration:none;}
     <div class="info-card">
       <h3>Our Prices</h3>
       <ul class="price-list">
-        <li><span class="pl-name">Outside Wash</span><span class="pl-price">£14</span></li>
-        <li><span class="pl-name">Inside Clean</span><span class="pl-price">£14</span></li>
-        <li><span class="pl-name">Maintenance Wash</span><span class="pl-price">£15</span></li>
-        <li><span class="pl-name">Inside &amp; Outside</span><span class="pl-price">£22</span></li>
+        <li><span class="pl-name">Outside Wash</span><span class="pl-price">£15</span></li>
+        <li><span class="pl-name">Inside Clean</span><span class="pl-price">£15</span></li>
+        <li><span class="pl-name">Maintenance Wash</span><span class="pl-price">£16</span></li>
+        <li><span class="pl-name">Inside &amp; Outside</span><span class="pl-price">£25</span></li>
       </ul>
     </div>
 
@@ -393,10 +393,6 @@ footer a{color:var(--primary2);text-decoration:none;}
         <input type="text" name="Address" required placeholder="Your address">
       </div>
       <div class="field">
-        <label>Village</label>
-        <input type="text" name="Village" required placeholder="Your village">
-      </div>
-      <div class="field">
         <label>Where did you hear about us?</label>
         <select name="Source" required>
           <option value="" disabled selected>Please select…</option>
@@ -415,10 +411,10 @@ footer a{color:var(--primary2);text-decoration:none;}
         <label>Service Required</label>
         <select name="Service" id="service-select" required>
           <option value="" disabled selected>Choose a service</option>
-          <option value="22" data-time="45">Inside &amp; Outside Wash (£22)</option>
-          <option value="14" data-time="25">Inside Wash (£14)</option>
-          <option value="14" data-time="25">Outside Wash (£14)</option>
-          <option value="15" data-time="30">Maintenance Wash (£15)</option>
+          <option value="Inside &amp; Outside Valet" data-price="25" data-time="45">Inside &amp; Outside Valet (£25)</option>
+          <option value="Inside Valet" data-price="15" data-time="25">Inside Valet (£15)</option>
+          <option value="Outside Valet" data-price="15" data-time="25">Outside Valet (£15)</option>
+          <option value="Maintenance Wash" data-price="16" data-time="30">Maintenance Wash (£16)</option>
         </select>
       </div>
 
@@ -427,53 +423,29 @@ footer a{color:var(--primary2);text-decoration:none;}
         <input type="text" name="Car Model" required placeholder="e.g. Ford Focus, VW Golf…">
       </div>
 
-      <h3 class="form-section-title">Car Size</h3>
-      <div class="checkbox-group">
-        <label class="checkbox-item">
-          <input type="radio" name="Car Size" class="price-option" value="0" data-time="0" checked>
-          Small Car (+£0)
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="Car Size" class="price-option" value="2" data-time="0">
-          Medium Car (SUV, Large family car) (+£2)
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="Car Size" class="price-option" value="4" data-time="15">
-          Large car (7 seater, pickup, small van) (+£4)
-        </label>
-      </div>
-
-      <h3 class="form-section-title" id="car-state-title">Additional Options - Car State</h3>
-      <div class="checkbox-group" id="car-state-group">
-        <label class="checkbox-item" id="condition-good-option">
-          <input type="radio" name="Car Condition" class="price-option" value="0" data-time="0" checked>
-          Good / Reasonable condition (+£0)
-        </label>
-        <label class="checkbox-item" id="condition-dirty-option">
-          <input type="radio" name="Car Condition" class="price-option" value="2" data-time="5">
-          Dirty (+£2)
-        </label>
-        <label class="checkbox-item" id="condition-very-dirty-option">
-          <input type="radio" name="Car Condition" class="price-option" value="3" data-time="10">
-          Very Dirty (+£3)
-        </label>
-      </div>
-
       <h3 class="form-section-title">Additional Options</h3>
       <div class="checkbox-group">
-        <label class="checkbox-item" id="stain-option">
-          <input type="checkbox" class="price-option" value="4" data-time="5" name="Stain Removal">
-          Stain removal (+£4)
-        </label>
         <label class="checkbox-item" id="pet-hair-option">
-          <input type="checkbox" class="price-option" value="4" data-time="10" name="Pet Hair Removal" id="pet-hair-input">
-          <span id="pet-hair-text">Pet hair removal (+£4)</span>
+          <input type="checkbox" class="price-option" value="3" data-time="10" name="Pet Hair Removal">
+          Pet hair removal (+£3)
+        </label>
+        <label class="checkbox-item" id="stain-option">
+          <input type="checkbox" class="price-option" value="3" data-time="5" name="Stain Removal">
+          Stain removal (+£3)
+        </label>
+        <label class="checkbox-item" id="extra-large-option">
+          <input type="checkbox" class="price-option" value="2" data-time="15" name="Extra Large Car">
+          Extra large car (+£2)
+        </label>
+        <label class="checkbox-item" id="extra-dirty-option">
+          <input type="checkbox" class="price-option" value="2" data-time="10" name="Extra Dirty Car">
+          Extra dirty car (+£2)
         </label>
       </div>
 
       <div class="price-time-summary">
         <div class="summary-item">
-          <span class="summary-label">Total Cost</span>
+          <span class="summary-label">Estimated Total</span>
           <span class="summary-value">£<span id="total-price">0</span></span>
         </div>
         <div class="summary-divider" style="display: none;"></div>
@@ -496,7 +468,7 @@ footer a{color:var(--primary2);text-decoration:none;}
         </label>
         <label class="checkbox-item">
           <input type="checkbox" name="Terms Accepted - Location" required>
-          I confirm I am located in Bishopthorpe, Acaster Malbis, Copmanthorpe, Woodthorpe, Dringhouses, Fulford, Deighton, Escrick or Riccall. *
+          I confirm I am located within the service area. *
         </label>
         <label class="checkbox-item" id="maintenance-checkbox" style="display:none;">
           <input type="checkbox" id="maintenance-input" name="Maintenance Requirement">
@@ -556,13 +528,11 @@ const maintenanceInput=document.getElementById("maintenance-input");
 
 // Target specific configuration nodes
 const petHairOption=document.getElementById("pet-hair-option");
-const petHairInput=document.getElementById("pet-hair-input");
-const petHairText=document.getElementById("pet-hair-text");
+const petHairInput=petHairOption.querySelector("input");
 const stainOption=document.getElementById("stain-option");
 const stainInput=stainOption.querySelector("input");
-const carStateTitle=document.getElementById("car-state-title");
-const carStateGroup=document.getElementById("car-state-group");
-const conditionGoodInput=document.getElementById("condition-good-option").querySelector("input");
+const extraLargeOption=document.getElementById("extra-large-option");
+const extraDirtyOption=document.getElementById("extra-dirty-option");
 const budgetNoticeEl=document.querySelector(".budget-notice");
 
 function formatTime(m){
@@ -576,7 +546,7 @@ function updateSummary(){
   let cost=0,time=0;
   const sel=serviceSelect.options[serviceSelect.selectedIndex];
   if(serviceSelect.value){
-    cost+=parseInt(serviceSelect.value);
+    cost+=parseInt(sel.getAttribute("data-price")||0);
     time+=parseInt(sel.getAttribute("data-time")||0);
   }
   extras.forEach(e=>{
@@ -586,7 +556,10 @@ function updateSummary(){
     const parentGroup = e.closest(".checkbox-group");
     if(parentGroup && parentGroup.style.display === "none") return;
 
-    if(e.checked){cost+=parseInt(e.value);time+=parseInt(e.getAttribute("data-time")||0);}
+    if(e.checked){
+      cost+=parseInt(e.value);
+      time+=parseInt(e.getAttribute("data-time")||0);
+    }
   });
   totalPriceEl.textContent=cost;
   totalTimeEl.textContent=serviceSelect.value?formatTime(time):"–";
@@ -602,35 +575,16 @@ serviceSelect.addEventListener("change",()=>{
   maintenanceInput.required=false;
   petHairOption.style.display="flex";
   stainOption.style.display="flex";
-  carStateTitle.style.display="block";
-  carStateGroup.style.display="flex";
-  
-  // Reset standard pet hair values
-  petHairInput.value="4";
-  petHairText.textContent="Pet hair removal (+£4)";
+  extraLargeOption.style.display="flex";
+  extraDirtyOption.style.display="flex";
 
   // Global default budget notice
   budgetNoticeEl.innerHTML = '<strong>Looking for a budget option?</strong> Our <strong>Maintenance Wash</strong> is designed to keep your car looking fresh all year round. Available <strong>only if you have had a car wash by us within a month.</strong>';
   
-  // Maintenance Wash Logic rules
+  // Logic rules
   if(t.includes("Maintenance Wash")){
     maintenanceCheckbox.style.display="flex";
     maintenanceInput.required=true;
-    
-    // Hide Stain Removal
-    stainOption.style.display="none";
-    stainInput.checked=false;
-    
-    // Hide Car State Options completely
-    carStateTitle.style.display="none";
-    carStateGroup.style.display="none";
-    conditionGoodInput.checked = true;
-
-    // Apply reduced pricing on pet hair removal for maintenance wash
-    petHairInput.value="2";
-    petHairText.textContent="Pet hair removal (+£2)";
-
-    // Update Note for Maintenance Wash Selection
     budgetNoticeEl.innerHTML = 'Maintenance wash is only available for customers who have had their car washed by <strong>CJ Car Washing within a month.</strong> Please make sure this is correct before submitting.';
   } else if(t.includes("Outside") && !t.includes("Inside")) {
     maintenanceInput.checked=false;
@@ -669,15 +623,16 @@ form.addEventListener("submit",async function(e){
       status.innerHTML="Thanks! Your booking request has been sent. We'll be in touch to confirm your slot.";
       status.className="success";
       form.reset();
+      
+      // Reset displays
       petHairOption.style.display="flex";
       stainOption.style.display="flex";
-      carStateTitle.style.display="block";
-      carStateGroup.style.display="flex";
+      extraLargeOption.style.display="flex";
+      extraDirtyOption.style.display="flex";
       maintenanceCheckbox.style.display="none";
       maintenanceInput.required=false;
-      petHairInput.value="4";
-      petHairText.textContent="Pet hair removal (+£4)";
       budgetNoticeEl.innerHTML = '<strong>Looking for a budget option?</strong> Our <strong>Maintenance Wash</strong> is designed to keep your car looking fresh all year round. Available <strong>only if you have had a car wash by us within a month.</strong>';
+      
       updateSummary();
       btn.innerText="Send Booking Request";
       btn.disabled=false;
